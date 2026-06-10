@@ -125,6 +125,21 @@ export default function AdminPage() {
           </div>
         </div>
       </section>
-    </main>
+    
+<section className="mx-auto my-8 max-w-6xl rounded-[2rem] border border-lime-200 bg-lime-50 p-6 shadow-sm">
+  <p className="text-sm font-black uppercase tracking-[0.22em] text-green-700">B2B engines</p>
+  <h2 className="mt-2 text-3xl font-black text-black">Runnerbot 2 operating layer</h2>
+  <div className="mt-5 grid gap-3 md:grid-cols-4">
+    {["Today’s orders", "Today’s preorders", "Active B2B pilots", "Pipeline value", "Delivery margin today", "SaaS MRR estimate", "Orders awaiting approval", "Top target category"].map((item) => (
+      <div key={item} className="rounded-2xl bg-white p-4 font-black shadow-sm">{item}</div>
+    ))}
+  </div>
+  <div className="mt-5 flex flex-wrap gap-3">
+    <a href="/cafe-pilot/admin" className="rounded-full bg-black px-5 py-3 font-black text-lime-300">Cafe Admin</a>
+    <a href="/pilot-crm" className="rounded-full bg-green-600 px-5 py-3 font-black text-white">Pilot CRM</a>
+    <a href="/preorder" className="rounded-full border border-green-600 px-5 py-3 font-black text-green-700">Preorders</a>
+  </div>
+</section>
+\n</main>
   );
 }

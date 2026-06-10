@@ -89,6 +89,21 @@ export default function InvestorsPage() {
   </div>
 </section>
 
-</main>
+
+<section className="my-10 rounded-[2rem] border border-lime-200 bg-lime-50 p-6 shadow-sm md:p-8">
+  <p className="text-sm font-black uppercase tracking-[0.22em] text-green-700">Market capture journey</p>
+  <h2 className="mt-2 text-3xl font-black text-black">
+    First B2B pilot vertical: Cafe OS + Lunch Preorder OS + Bites AI
+  </h2>
+  <p className="mt-3 max-w-4xl text-zinc-700">
+    Runners Errands can start with one cafe pilot, prove value, then scale across Ikoyi, VI and Lekki businesses with order + fulfilment confusion.
+  </p>
+  <div className="mt-5 flex flex-wrap gap-3">
+    <a href="/commercial-pilots" className="rounded-full bg-black px-5 py-3 font-black text-lime-300">Commercial Pilots</a>
+    <a href="/business-targets" className="rounded-full bg-green-600 px-5 py-3 font-black text-white">Business Targets</a>
+    <a href="/pilot-crm" className="rounded-full border border-green-600 px-5 py-3 font-black text-green-700">Pilot CRM</a>
+  </div>
+</section>
+\n</main>
   );
 }

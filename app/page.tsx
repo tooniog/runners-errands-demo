@@ -399,7 +399,24 @@ export default function Home() {
   </div>
 </section>
 
-</main>
+
+<section className="mx-auto my-10 max-w-6xl rounded-[2rem] border border-lime-200 bg-lime-50 p-6 shadow-sm md:p-8">
+  <p className="text-sm font-black uppercase tracking-[0.22em] text-green-700">Goldrush system</p>
+  <h2 className="mt-2 text-3xl font-black text-black">
+    Bites AI decides. Runnerbot 2 fulfils. Runners Errands delivers.
+  </h2>
+  <p className="mt-3 max-w-4xl text-zinc-700">
+    Runners Errands is now a Lagos business operating layer for orders, fulfilment, delivery, customer updates,
+    payment status, staff approval and business intelligence.
+  </p>
+  <div className="mt-5 flex flex-wrap gap-3">
+    <a href="/cafe-pilot" className="rounded-full bg-black px-5 py-3 font-black text-lime-300">Cafe OS</a>
+    <a href="/preorder" className="rounded-full bg-green-600 px-5 py-3 font-black text-white">Lunch Preorder OS</a>
+    <a href="/bites-ai" className="rounded-full border border-green-600 px-5 py-3 font-black text-green-700">Bites AI</a>
+    <a href="/pilot-crm" className="rounded-full border border-green-600 px-5 py-3 font-black text-green-700">Pilot CRM</a>
+  </div>
+</section>
+\n</main>
   );
 }
 
