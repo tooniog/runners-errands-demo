@@ -74,6 +74,21 @@ export default function InvestorsPage() {
           Request investor pack
         </a>
       </section>
-    </main>
+    
+<section className="my-10 rounded-[2rem] border border-lime-200 bg-lime-50 p-6 shadow-sm md:p-8">
+  <p className="text-sm font-black uppercase tracking-[0.22em] text-green-700">First B2B pilot module</p>
+  <h2 className="mt-2 text-3xl font-black text-black">Runnerbot 2 Cafe OS</h2>
+  <p className="mt-3 max-w-3xl text-zinc-700">
+    Cafe OS turns scattered cafe orders into a clean fulfilment, delivery and reporting system.
+    It is designed as the first repeatable B2B pilot vertical for Runners Errands across cafes,
+    restaurants, pharmacies, schools, offices, private clubs, estates and hotels in Lagos.
+  </p>
+  <div className="mt-5 flex flex-wrap gap-3">
+    <a href="/cafe-pilot" className="rounded-full bg-black px-5 py-3 font-black text-lime-300">Open Cafe OS</a>
+    <a href="/cafe-pilot/economics" className="rounded-full bg-green-600 px-5 py-3 font-black text-white">View Economics</a>
+  </div>
+</section>
+
+</main>
   );
 }

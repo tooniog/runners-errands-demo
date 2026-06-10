@@ -385,7 +385,21 @@ export default function Home() {
           </div>
         </section>
       </section>
-    </main>
+    
+<section className="mx-auto my-10 max-w-6xl rounded-[2rem] border border-lime-200 bg-lime-50 p-6 shadow-sm md:p-8">
+  <p className="text-sm font-black uppercase tracking-[0.22em] text-green-700">Pilot Modules</p>
+  <h2 className="mt-2 text-3xl font-black text-black">New B2B pilot: Runnerbot 2 Cafe OS</h2>
+  <p className="mt-3 max-w-3xl text-zinc-700">
+    A pilot-ready cafe operations layer for Ikoyi Club-style cafes, restaurants, bakeries, pharmacies,
+    offices, private clubs and gated-community businesses in Lagos.
+  </p>
+  <div className="mt-5 flex flex-wrap gap-3">
+    <a href="/cafe-pilot" className="rounded-full bg-black px-5 py-3 font-black text-lime-300">Open Cafe Pilot</a>
+    <a href="/cafe-pilot/demo" className="rounded-full bg-green-600 px-5 py-3 font-black text-white">Run Demo Flow</a>
+  </div>
+</section>
+
+</main>
   );
 }
 
