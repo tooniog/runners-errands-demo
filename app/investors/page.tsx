@@ -36,6 +36,7 @@ export default function InvestorsPage() {
           <Link href="/mall-os" className="rounded-full bg-lime-300 px-6 py-4 font-black text-black">Open Mall OS</Link>
           <Link href="/mall-os/simulation" className="rounded-full bg-white px-6 py-4 font-black text-black">Simulation</Link>
           <Link href="/pilot-crm" className="rounded-full border border-white/20 px-6 py-4 font-black text-white">Pilot CRM</Link>
+          <Link href="/funding-room" className="rounded-full border border-lime-300/60 px-6 py-4 font-black text-lime-300">Funding Room</Link>
         </div>
       </section>
 

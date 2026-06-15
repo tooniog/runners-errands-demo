@@ -95,3 +95,62 @@ Live module routes:
 - Club-specific permissions
 - Role-based access control
 - Legal/privacy documents
+
+
+
+## Runners Mall OS Funding Room
+
+New investor route:
+- /funding-room
+
+Purpose:
+- Investor-ready funding room for Runners Errands / Runners Mall OS.
+- Supports the N18m preferred ask and N15m lean ask.
+- Frames the 4-bike Spiro Ekon 450 M3 fleet acquisition, rider onboarding, Mall OS pilot launch, marketing, legal/admin, software polish and contingency.
+- Uses proposed pilot language only. No mall approval, tenant approval or revenue is claimed unless signed/verified.
+
+Investor demo flow:
+1. /
+2. /mall-os
+3. /mall-os/simulation
+4. /funding-room
+5. Funding Room -> Fleet Procurement Readiness
+6. Funding Room -> Use of Funds
+7. Funding Room -> Financial Model / Simulator
+8. Funding Room -> Risk Mitigation
+9. Funding Room -> Investor Return / Repayment Options
+
+Known assumptions:
+- Preferred ask: N18,000,000.
+- Lean ask: N15,000,000.
+- Selected bike: Spiro Ekon 450 M3.
+- Unit bike price: N1,850,000.
+- Quantity: 4 bikes.
+- Total bike acquisition: N7,400,000.
+- Founder physically tested the bike.
+- Supplier quotation/pro forma invoice should be treated as requested/pending unless uploaded.
+- First Mall OS pilot is proposed and subject to mall approval.
+- Tenant participation is proposed and subject to tenant approval.
+- Financial model is an estimate before central overhead and must be validated during pilot.
+
+Must verify before investor presentation:
+- Supplier pro forma invoice or written quotation.
+- Warranty terms.
+- Battery swap/charging support.
+- Maintenance/spare parts availability.
+- Fleet registration/insurance/admin requirements.
+- Rider agreement and guarantor process.
+- Mall pilot permission/status.
+- Tenant participation status.
+- Legal structure of investor repayment/return option.
+
+Run locally:
+npm run dev -- -p 3030
+
+Build:
+npm run build
+
+Deploy:
+git add .
+git commit -m "Add Funding Room investor layer"
+git push
