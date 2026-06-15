@@ -24,7 +24,7 @@ export default function Navbar() {
               Runners Errands
             </p>
             <p className="text-xs font-bold text-slate-500">
-              Tap. Track. Delivered.
+              Mall OS • AI Concierge • E-bike Fulfilment
             </p>
           </div>
         </Link>
