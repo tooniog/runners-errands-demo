@@ -10,7 +10,7 @@ const seed = [
 
 export default function TenantPage(){
   const [orders,setOrders] = useState(seed);
-  function update(i,status){ setOrders(orders.map((o,idx)=>idx===i?[o[0],o[1],o[2],status,o[4]]:o)); }
+  function update(i: number, status: string){ setOrders(orders.map((o,idx)=>idx===i?[o[0],o[1],o[2],status,o[4]]:o)); }
   return (
     <main className="min-h-screen bg-[#f7faf7] px-5 py-8 text-black md:px-10">
       <section className="mx-auto max-w-7xl rounded-[2.5rem] bg-black p-8 text-white shadow-2xl">

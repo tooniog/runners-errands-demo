@@ -12,7 +12,7 @@ const quick = [
   "How does priority delivery work?",
 ];
 
-function reply(q) {
+function reply(q: string) {
   const t = q.toLowerCase();
   if (t.includes("lunch")) return "For lunch, Bites AI can choose by budget, appetite and ready time. A strong default is Club sandwich + fresh juice, or Chicken salad + juice if you want lighter.";
   if (t.includes("combine") || t.includes("multi")) return "Yes. Mall OS is built for multi-store errands. Runnerbot 2 groups food, pharmacy, grocery, beauty, gifts and other items into one coordinated order.";
@@ -25,7 +25,7 @@ export default function ConciergePage() {
   const [messages, setMessages] = useState([{ role: "bot", text: "Welcome to Runnerbot 2 Mall Concierge. Ask about food, stores, preorders, delivery, collection or multi-store errands." }]);
   const [input, setInput] = useState("");
 
-  function ask(text) {
+  function ask(text: string) {
     const q = text || input;
     if (!q.trim()) return;
     setMessages((m) => [...m, { role: "user", text: q }, { role: "bot", text: reply(q) }]);

@@ -3,7 +3,7 @@
 
 import { useMemo, useState } from "react";
 
-function n(x){return `₦${Math.round(x).toLocaleString()}`}
+function n(x: number){return `₦${Math.round(x).toLocaleString()}`}
 
 export default function SimulationPage() {
   const [v, setV] = useState({
