@@ -4,40 +4,45 @@
 import { FormEvent, useState } from "react";
 
 const packages = [
-  "Cafe OS Starter",
+  "Mall OS Pilot",
+  "Mall Tenant Delivery Layer",
   "Lunch Preorder OS",
-  "Corporate Lunch OS",
-  "Managed Delivery OS",
-  "Pharmacy Dispatch OS",
-  "Laundry Pickup/Dropoff OS",
-  "Premium Gifting Dispatch",
-  "Hotel Guest Errand Agent",
-  "Enterprise/Institution OS",
+  "Multi-Store Errand OS",
+  "Mall Analytics + Promotions",
+  "Enterprise Mall Network",
 ];
 
 const categories = [
-  "Private club cafe",
-  "Cafe / bakery",
-  "Restaurant",
-  "Office lunch provider",
-  "Pharmacy",
-  "Estate supermarket",
-  "Laundry",
-  "Florist",
-  "School / canteen",
-  "Clinic / hospital",
-  "Hotel / serviced apartment",
-  "Gym / wellness cafe",
+  "Mall management",
+  "Mall tenant",
+  "Restaurant / food tenant",
+  "Grocery / supermarket tenant",
+  "Pharmacy / health tenant",
+  "Beauty / salon tenant",
+  "Fashion tenant",
+  "Electronics tenant",
+  "Cinema / entertainment",
+  "Anchor tenant",
+  "Investor / fleet partner",
   "Other",
 ];
 
-const areas = ["Ikoyi", "VI", "Lekki Phase 1", "Banana Island", "Parkview", "Osborne", "Other"];
+const areas = [
+  "Lekki",
+  "The Palms / Lekki",
+  "Circle Mall / Lekki",
+  "Lennox Mall / Lekki",
+  "Novare Lekki",
+  "VI",
+  "Ikoyi",
+  "Other Lagos retail cluster",
+];
 
 type Status = "idle" | "loading" | "success" | "error";
 
 export default function PilotSignupForm({
   compact = false,
-  source = "commercial_pilot_signup",
+  source = "mall_os_pilot_signup",
 }: {
   compact?: boolean;
   source?: string;
@@ -45,17 +50,17 @@ export default function PilotSignupForm({
   const [status, setStatus] = useState<Status>("idle");
   const [message, setMessage] = useState("");
   const [form, setForm] = useState({
-    businessName: "",
-    category: "Cafe / bakery",
-    area: "Ikoyi",
+    organisationName: "",
+    category: "Mall management",
+    area: "The Palms / Lekki",
     contactPerson: "",
     phone: "",
     email: "",
-    instagramWebsite: "",
-    desiredPackage: "Cafe OS Starter",
+    website: "",
+    desiredPackage: "Mall OS Pilot",
     painPoint: "",
     estimatedOrders: "",
-    preferredPilot: "14-day paid pilot",
+    preferredPilot: "14–30 day proposed pilot",
     notes: "",
   });
 
@@ -64,13 +69,13 @@ export default function PilotSignupForm({
   }
 
   function saveLocal() {
-    const key = "runners_pilot_signups_v1";
+    const key = "runners_mall_os_signups_v1";
     const existing = JSON.parse(localStorage.getItem(key) || "[]");
     const record = {
       ...form,
       source,
       createdAt: new Date().toISOString(),
-      status: "New pilot enquiry",
+      status: "New Mall OS enquiry",
     };
     localStorage.setItem(key, JSON.stringify([record, ...existing]));
   }
@@ -101,8 +106,9 @@ export default function PilotSignupForm({
           ...form,
           source,
           submittedAt: new Date().toISOString(),
-          platform: "Runners Errands Goldrush Pilot Platform",
-          strategicLine: "Any Lagos business with orders + fulfilment confusion is a Runnerbot 2 target.",
+          platform: "Runners Mall OS",
+          strategicLine: "Runners Mall OS turns a physical mall into a digital commerce, preorder, AI concierge and e-bike delivery hub.",
+          ecosystemLine: "Bites AI decides. Runnerbot 2 fulfils. Runners Errands delivers.",
         }),
       });
 
@@ -111,19 +117,19 @@ export default function PilotSignupForm({
       }
 
       setStatus("success");
-      setMessage("Pilot enquiry received. Runners Errands will review the business and follow up with the right pilot package.");
+      setMessage("Mall OS enquiry received. Runners Errands will review and follow up with the right pilot route.");
       setForm({
-        businessName: "",
-        category: "Cafe / bakery",
-        area: "Ikoyi",
+        organisationName: "",
+        category: "Mall management",
+        area: "The Palms / Lekki",
         contactPerson: "",
         phone: "",
         email: "",
-        instagramWebsite: "",
-        desiredPackage: "Cafe OS Starter",
+        website: "",
+        desiredPackage: "Mall OS Pilot",
         painPoint: "",
         estimatedOrders: "",
-        preferredPilot: "14-day paid pilot",
+        preferredPilot: "14–30 day proposed pilot",
         notes: "",
       });
     } catch (error) {
@@ -137,27 +143,21 @@ export default function PilotSignupForm({
     <section className="rounded-[2rem] border border-lime-200 bg-lime-50 p-5 shadow-sm md:p-8">
       <div className="mb-6">
         <p className="text-sm font-black uppercase tracking-[0.22em] text-green-700">
-          Pilot signup
+          Mall OS pilot enquiry
         </p>
         <h2 className="mt-2 text-3xl font-black text-black">
-          Request a Runners Errands pilot
+          Request a Runners Mall OS pilot discussion
         </h2>
         {!compact && (
           <p className="mt-3 max-w-3xl text-zinc-700">
-            For cafes, private clubs, offices, pharmacies, estate supermarkets, florists, laundries, schools,
-            hotels and Lagos businesses with order + fulfilment confusion.
+            For malls, anchor tenants, restaurants, groceries, pharmacies, beauty, fashion, electronics,
+            cinema/entertainment and retail clusters that want AI concierge, preorder, multi-store errands and e-bike delivery.
           </p>
         )}
       </div>
 
       {message && (
-        <div
-          className={`mb-5 rounded-3xl p-4 text-sm font-bold ${
-            status === "error"
-              ? "bg-red-50 text-red-700"
-              : "bg-white text-green-800"
-          }`}
-        >
+        <div className={`mb-5 rounded-3xl p-4 text-sm font-bold ${status === "error" ? "bg-red-50 text-red-700" : "bg-white text-green-800"}`}>
           {message}
         </div>
       )}
@@ -166,10 +166,10 @@ export default function PilotSignupForm({
         <div className="grid gap-4 md:grid-cols-2">
           <input
             required
-            value={form.businessName}
-            onChange={(e) => update("businessName", e.target.value)}
+            value={form.organisationName}
+            onChange={(e) => update("organisationName", e.target.value)}
             className="rounded-2xl border border-zinc-200 bg-white px-4 py-3 text-black outline-none focus:border-green-600"
-            placeholder="Business name"
+            placeholder="Mall / tenant / organisation name"
           />
           <input
             required
@@ -181,76 +181,34 @@ export default function PilotSignupForm({
         </div>
 
         <div className="grid gap-4 md:grid-cols-3">
-          <select
-            value={form.category}
-            onChange={(e) => update("category", e.target.value)}
-            className="rounded-2xl border border-zinc-200 bg-white px-4 py-3 text-black"
-          >
-            {categories.map((item) => (
-              <option key={item}>{item}</option>
-            ))}
+          <select value={form.category} onChange={(e) => update("category", e.target.value)} className="rounded-2xl border border-zinc-200 bg-white px-4 py-3 text-black">
+            {categories.map((item) => <option key={item}>{item}</option>)}
           </select>
 
-          <select
-            value={form.area}
-            onChange={(e) => update("area", e.target.value)}
-            className="rounded-2xl border border-zinc-200 bg-white px-4 py-3 text-black"
-          >
-            {areas.map((item) => (
-              <option key={item}>{item}</option>
-            ))}
+          <select value={form.area} onChange={(e) => update("area", e.target.value)} className="rounded-2xl border border-zinc-200 bg-white px-4 py-3 text-black">
+            {areas.map((item) => <option key={item}>{item}</option>)}
           </select>
 
-          <select
-            value={form.desiredPackage}
-            onChange={(e) => update("desiredPackage", e.target.value)}
-            className="rounded-2xl border border-zinc-200 bg-white px-4 py-3 text-black"
-          >
-            {packages.map((item) => (
-              <option key={item}>{item}</option>
-            ))}
+          <select value={form.desiredPackage} onChange={(e) => update("desiredPackage", e.target.value)} className="rounded-2xl border border-zinc-200 bg-white px-4 py-3 text-black">
+            {packages.map((item) => <option key={item}>{item}</option>)}
           </select>
         </div>
 
         <div className="grid gap-4 md:grid-cols-3">
-          <input
-            required
-            value={form.phone}
-            onChange={(e) => update("phone", e.target.value)}
-            className="rounded-2xl border border-zinc-200 bg-white px-4 py-3 text-black outline-none focus:border-green-600"
-            placeholder="Phone / WhatsApp"
-          />
-          <input
-            value={form.email}
-            onChange={(e) => update("email", e.target.value)}
-            className="rounded-2xl border border-zinc-200 bg-white px-4 py-3 text-black outline-none focus:border-green-600"
-            placeholder="Email"
-          />
-          <input
-            value={form.instagramWebsite}
-            onChange={(e) => update("instagramWebsite", e.target.value)}
-            className="rounded-2xl border border-zinc-200 bg-white px-4 py-3 text-black outline-none focus:border-green-600"
-            placeholder="Instagram / website"
-          />
+          <input required value={form.phone} onChange={(e) => update("phone", e.target.value)} className="rounded-2xl border border-zinc-200 bg-white px-4 py-3 text-black outline-none focus:border-green-600" placeholder="Phone / WhatsApp" />
+          <input value={form.email} onChange={(e) => update("email", e.target.value)} className="rounded-2xl border border-zinc-200 bg-white px-4 py-3 text-black outline-none focus:border-green-600" placeholder="Email" />
+          <input value={form.website} onChange={(e) => update("website", e.target.value)} className="rounded-2xl border border-zinc-200 bg-white px-4 py-3 text-black outline-none focus:border-green-600" placeholder="Website / Instagram" />
         </div>
 
         <div className="grid gap-4 md:grid-cols-2">
-          <input
-            value={form.estimatedOrders}
-            onChange={(e) => update("estimatedOrders", e.target.value)}
-            className="rounded-2xl border border-zinc-200 bg-white px-4 py-3 text-black outline-none focus:border-green-600"
-            placeholder="Estimated orders/day, e.g. 20"
-          />
-          <select
-            value={form.preferredPilot}
-            onChange={(e) => update("preferredPilot", e.target.value)}
-            className="rounded-2xl border border-zinc-200 bg-white px-4 py-3 text-black"
-          >
-            <option>14-day paid pilot</option>
-            <option>30-day pilot</option>
-            <option>60-day pilot</option>
+          <input value={form.estimatedOrders} onChange={(e) => update("estimatedOrders", e.target.value)} className="rounded-2xl border border-zinc-200 bg-white px-4 py-3 text-black outline-none focus:border-green-600" placeholder="Estimated orders/day or tenant count" />
+          <select value={form.preferredPilot} onChange={(e) => update("preferredPilot", e.target.value)} className="rounded-2xl border border-zinc-200 bg-white px-4 py-3 text-black">
+            <option>14–30 day proposed pilot</option>
             <option>Demo first</option>
-            <option>Partnership discussion</option>
+            <option>Tenant onboarding discussion</option>
+            <option>E-bike fleet/funding discussion</option>
+            <option>Mall management proposal review</option>
+            <option>Investor/advisor discussion</option>
           </select>
         </div>
 
@@ -259,21 +217,18 @@ export default function PilotSignupForm({
           value={form.painPoint}
           onChange={(e) => update("painPoint", e.target.value)}
           className="min-h-24 rounded-2xl border border-zinc-200 bg-white px-4 py-3 text-black outline-none focus:border-green-600"
-          placeholder="What order, fulfilment, delivery, payment or customer update problem should Runnerbot 2 solve?"
+          placeholder="What mall, tenant, ordering, preorder, delivery, collection or customer experience problem should Mall OS solve?"
         />
 
         <textarea
           value={form.notes}
           onChange={(e) => update("notes", e.target.value)}
           className="min-h-20 rounded-2xl border border-zinc-200 bg-white px-4 py-3 text-black outline-none focus:border-green-600"
-          placeholder="Extra notes, preferred timing, decision maker, warm intro, special workflow..."
+          placeholder="Extra notes: tenant categories, pickup point, QR signage, warm intro, fleet interest, pilot constraints..."
         />
 
-        <button
-          disabled={status === "loading"}
-          className="rounded-full bg-green-600 px-6 py-4 font-black text-white shadow-lg shadow-green-600/20 transition hover:bg-green-700 disabled:opacity-60"
-        >
-          {status === "loading" ? "Submitting pilot enquiry..." : "Submit pilot enquiry"}
+        <button disabled={status === "loading"} className="rounded-full bg-green-600 px-6 py-4 font-black text-white shadow-lg shadow-green-600/20 transition hover:bg-green-700 disabled:opacity-60">
+          {status === "loading" ? "Submitting Mall OS enquiry..." : "Submit Mall OS enquiry"}
         </button>
 
         <p className="text-xs text-zinc-600">
